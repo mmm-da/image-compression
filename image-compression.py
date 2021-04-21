@@ -59,7 +59,7 @@ def compress_to_size(input:Path,size:int):
             Path(output).unlink()
         
         if quality < 40:
-            tqdm.write(' ⚠ ВНИМАНИЕ ⚠ ВНИМАНИЕ ⚠ Файл {} сжался с сильной потерей качества! Лучше обработать руками.'.format(input))
+            tqdm.write(' !!! ВНИМАНИЕ !!! ВНИМАНИЕ !!! Файл {} сжался с сильной потерей качества! Лучше обработать руками.'.format(input))
 
 if __name__ == "__main__":
     images = []
@@ -70,12 +70,12 @@ if __name__ == "__main__":
         try:
             images += get_all_images(path)
         except FileNotFoundError as error:
-            tqdm.write('[⚠] Папка {} не найдена'.format(path))
+            tqdm.write('!!! Папка {} не найдена'.format(path))
 
     images_count = len(images)
 
     if images_count > 0:
-        tqdm.write('[✔] Найдено {} шт'.format(len(images)))
+        tqdm.write('Найдено {} шт'.format(len(images)))
 
         tqdm.write('Начинаем сжимать до {} Кб'.format(max_file_size))
 
@@ -84,8 +84,8 @@ if __name__ == "__main__":
         for image in tqdm(images):
             compress_to_size(image,max_file_size)
 
-        tqdm.write('[✔] Готово! Результат в папке output.')
+        tqdm.write('Готово! Результат в папке output.')
         input()
     else:
-        tqdm.write('[X] Не найдены изображения. Перенесите файлы в эту папку или папку input')
+        tqdm.write('!!! Не найдены изображения. Перенесите файлы в эту папку или папку input')
         input()
