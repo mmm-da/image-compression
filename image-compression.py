@@ -4,7 +4,7 @@ from tqdm import tqdm
 from os import stat
 
 #размер в килобайтах
-max_file_size = 500
+max_file_size = 498
 
 quality_step = 2
 
